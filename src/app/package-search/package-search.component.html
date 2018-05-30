@@ -1,0 +1,8 @@
+<input type="text" (keyup)="search($event.target.value)" id="name" placeholder="Search"/>
+
+<ul>
+	<li *ngFor="let package of packages1 | async">
+		<b>{{package.name}} v.{{package.version}}</b> -
+		<i>{{package.description}}</i>
+	</li>
+</ul>
