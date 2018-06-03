@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PackageSearchService } from '../package-search.service';
 import { Subject, Observable } from 'rxjs';
 import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
-
+import { NpmPackageInfo } from '../entities/npmpackageinfo';
 @Component({
     selector: 'app-package-search',
     templateUrl: './package-search.component.html',
@@ -18,7 +18,6 @@ export class PackageSearchComponent implements OnInit {
         this.searchText$.next(packageName);
     }
 
-
     constructor(private searchService: PackageSearchService) { }
 
     ngOnInit() {
@@ -30,5 +29,6 @@ export class PackageSearchComponent implements OnInit {
             );
     }
 
+ toggleRefresh() { this.withRefresh = ! this.withRefresh; }
 }
 
